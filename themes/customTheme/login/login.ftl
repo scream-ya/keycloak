@@ -7,6 +7,7 @@
                 <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="${url.loginAction}" method="post">
                     <#if !usernameHidden??>
                         <div class="${properties.kcFormGroupClass!}">
+                            <div id="username-icon"></div>
                             <input tabindex="1" id="username" class="${properties.kcInputClass!}" name="username" value="${(login.username!'')}"  type="text" autofocus autocomplete="off"
                                    aria-invalid="<#if messagesPerField.existsError('username','password')>true</#if>" placeholder="${msg('username')}"
                             />
@@ -21,13 +22,16 @@
                     </#if>
 
                     <div class="${properties.kcFormGroupClass!}">
+                        <div id="password-icon"></div>
                         <div class="${properties.kcInputGroup!}">
                             <input tabindex="2" id="password" class="${properties.kcInputClass!}" name="password" type="password" autocomplete="off"
                                    aria-invalid="<#if messagesPerField.existsError('username','password')>true</#if>" placeholder="${msg('password')}"
                             />
                             <button class="pf-c-button pf-m-control" type="button" aria-label="${msg('showPassword')}"
                                     aria-controls="password"  data-password-toggle
-                                    data-label-show="${msg('showPassword')}" data-label-hide="${msg('hidePassword')}" />
+                                    data-label-show="${msg('showPassword')}" data-label-hide="${msg('hidePassword')}" >
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                            </button>
                         </div>
 
                         <#if usernameHidden?? && messagesPerField.existsError('username','password')>

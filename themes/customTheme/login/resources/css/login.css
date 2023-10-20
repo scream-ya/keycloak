@@ -10,25 +10,53 @@
   background: #e6e6e6;
 }
 
+.form-group {
+  position: relative;
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
 #username {
-  background-image: url(../img/user-icon.svg);
-  background-repeat: no-repeat;
-  background-position: 10px center;
   padding-left: 32px;
 }
 
-#password {
-  background-image: url(../img/password-icon.svg);
+#username-icon {
+  position: absolute;
+  background-image: url(../img/user-icon.svg);
   background-repeat: no-repeat;
-  background-position: 10px center;
+  top: 9px;
+  left: 11px;
+  width: 20px;
+  height: 20px;
+  z-index: 1000;
+}
+
+#password {
   padding-left: 32px;
   border-radius: 2px 0px 0px 2px;
   border-right: none;
 }
 
+#password-icon {
+  position: absolute;
+  background-image: url(../img/password-icon.svg);
+  background-repeat: no-repeat;
+  top: 9px;
+  left: 11px;
+  width: 20px;
+  height: 20px;
+  z-index: 1000;
+}
+
 .pf-c-form-control {
   border-radius: 2px;
   border: 1px solid #858585;
+}
+
+h1#kc-page-title {
+  margin-top: 10px;
 }
 
 .pf-c-form-control[aria-invalid="true"] {
@@ -76,9 +104,14 @@ p.instruction {
   border-width: 1px 1px 1px 0px;
   border-radius: 0px 2px 2px 0px;
   border-color: #858585;
-  background-image: url(../img/eye-icon.svg);
-  background-repeat: no-repeat;
-  background-position: center;
+}
+
+.fa-eye::before {
+  color: #858585;
+}
+
+.fa-eye-slash::before {
+  color: #858585;
 }
 
 #kc-locale ul {
@@ -138,7 +171,7 @@ div.kc-logo-text span {
   gap: 12px;
   overflow: visible;
   white-space: nowrap;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 
 #kc-header-logo {
@@ -440,9 +473,12 @@ ul#kc-totp-supported-apps {
   }
 
   #kc-locale {
-    position: relative;
+    position: absolute;
     text-align: right;
     z-index: 9999;
+    margin: 20px;
+    right: 0;
+    top: 0;
   }
 }
 
